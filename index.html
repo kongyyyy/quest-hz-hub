@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quest Hz Hub — ADB refresh-rate and frame-pacing reference for Meta Quest headsets.">
+  <title>Quest Hz Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-dot"></span> QUEST<span>HZ</span> HUB</a>
+    <div class="top-actions">
+      <button id="deviceBtn" class="device-btn">Quest 3 ▾</button>
+      <a href="#about">About</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">ADB • REFRESH RATE • FRAME PACING</div>
+      <h1>Find your <span>Hz.</span></h1>
+      <p>Pick a target below to see the commands, math, and notes for Quest.</p>
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="search" type="search" placeholder="Search 50 Hz, 45 FPS, Quest 3..." autocomplete="off">
+      </div>
+    </section>
+
+    <section class="notice">
+      <strong>⚠ Experimental settings</strong>
+      <span>ADB properties can change between Horizon OS versions. Check your headset's actual reported rate after applying a command.</span>
+    </section>
+
+    <section class="section-head">
+      <div>
+        <div class="eyebrow">TARGETS</div>
+        <h2>Choose a mode</h2>
+      </div>
+      <div id="count" class="count"></div>
+    </section>
+
+    <section id="cards" class="cards"></section>
+
+    <section id="details" class="details hidden">
+      <button id="closeDetails" class="close">×</button>
+      <div id="detailsContent"></div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="eyebrow">HOW IT WORKS</div>
+      <h2>Refresh rate ≠ FPS</h2>
+      <p>
+        A display refresh rate is the panel's refresh frequency. Swap interval can make an app
+        present a frame less often, creating a lower effective frame rate while the display itself
+        runs at a higher supported refresh rate.
+      </p>
+      <div class="formula">
+        <span>Effective FPS</span><b>=</b><span>Refresh Rate</span><b>÷</b><span>Swap Interval</span>
+      </div>
+      <p class="small">
+        Example: 90 Hz ÷ 2 = 45 FPS. These are frame-pacing recipes, not claims that the Quest
+        panel has a native 45 Hz mode.
+      </p>
+    </section>
+
+    <footer>
+      <span>QUEST HZ HUB</span>
+      <span>Use at your own risk • Built for Quest tinkering</span>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast">Copied!</div>
+  <script src="script.js"></script>
+</body>
+</html>
